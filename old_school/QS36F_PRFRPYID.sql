@@ -1,0 +1,47 @@
+/*
+ FYTD Profit Summary
+ Tom Sampson
+ 08/13/2018
+
+*/
+SELECT
+      PRFRPYID.SLSNO"SLSNO"
+     ,PRFRPYID.SLSMNM"SLSMNM"
+     ,PRFRPYID.REPNO"REPNO"
+     ,PRFRPYID.REPNAM"REPNAM"
+     ,PRFRPYID.MKT"MKT"
+     ,PRFRPYID.MKTNM"MKTNM"
+     ,PRFRPYID.TERR"TERR"
+     ,PRFRPYID.GRPNO"GRPNO"
+     ,PRFRPYID.GRPNM"GRPNM"
+     ,PRFRPYID.CUSNO"CUSNO"
+     ,PRFRPYID.CUSNM"CUSNM"
+     ,PRFRPYID.ITMCLS"Item Class"
+     ,PRFRPYID.CLSDSC"Item Class Description"
+     ,PRFRPYID.ITMFML"Item Family"
+     ,PRFRPYID.FMLDSC"Item Family Description"
+     ,PRFRPYID.ITMGRP"Item Group"
+     ,PRFRPYID.GRPDSC"Item Group Description"
+     ,PRFRPYID.PROCOD"PROCOD"
+     ,PRFRPYID.PRODES"PRODES"
+     ,PRFRPYID.STRDAT"Start Date"
+     ,PRFRPYID.ENDDAT"End Date"
+     ,PRFRPYID.INVNO"INVNO"
+     ,PRFRPYID.INVDAT"INVDAT"
+     ,PRFRPYID.UNITS"Units Shipped"
+     ,PRFRPYID.CASES"Cases Shipped"
+     ,PRFRPYID.GRSSLS"Gross Sales"
+     ,PRFRPYID.CASHDS"Cash Discount"
+     ,PRFRPYID.INVDIS"Invoice Discount"
+     ,PRFRPYID.OTHDIS"Other Discount"
+     ,PRFRPYID.NETSLS"Net Sales"
+     ,PRFRPYID.RM"Raw Materials"
+     ,PRFRPYID.LO"Labor & Overhead"
+     ,PRFRPYID.GRSMAR"Gross Margin"
+     ,CAST(PRFRPYID.GRSMRP/100 AS DECIMAL(5,2))"GM %"
+     ,PRFRPYID.FRT"Freight"
+     ,PRFRPYID.COMM"Commissions"
+     ,PRFRPYID.PRTXCN"Pre Tax Contribution"
+     ,CAST(PRFRPYID.PRTXCP/100 AS DECIMAL(5,2))"PTC %"
+
+FROM QS36F.PRFRPYID PRFRPYID

@@ -1,0 +1,46 @@
+/*
+	Sales Detail Export less Construction w/Addrs
+*/
+SELECT 
+
+	 SALESDXP.MKT	"Mkt"
+	,SALESDXP.MKTNM	"Market Name"
+	,SALESDXP.TERR	"Terr"
+	,SALESDXP.SLSNO	"Slsmno"
+	,SALESDXP.SLSMNM	"Salesman Name"
+	,SALESDXP.REPNO	"Repno"
+	,SALESDXP.REPNAM	"Rep Name"
+	,SALESDXP.GRPNO	"Grpno"
+	,SALESDXP.GRPNM	"Group Name"
+	,SALESDXP.CUSNO	"Cusno"
+	,SALESDXP.CUSNM	"Customer Name"
+	,SALESDXP.ALCLTX	"Ship to Name"
+	,SALESDXP.ALCMTX	"Ship to Address 1"
+	,SALESDXP.ALCNTX	"Ship to Address 2"
+	,SALESDXP.ALCOTX	"Ship to Address 3"
+	,SALESDXP.ALZ9HH	"Ship to Address 4"
+	,SALESDXP.ALZ9HG	"Ship to Address 5"
+	,SALESDXP.ALCPTX	"City"
+	,SALESDXP.ALBYCD	"State"
+	,SALESDXP.ALCVCD	"Zip Code"
+	,SALESDXP.ALCOCD	"Country Code"
+	,SALESDXP.BBCJTX	"Country"
+	,SALESDXP.SHPTEL	"Phone Number"
+	,SALESDXP.COMCOD	"Item Class"
+	,SALESDXP.COMCNM	"Item Class Description"
+	,SALESDXP.VIP	"Item Family"
+	,SALESDXP.VIPNM	"Item Family Description"
+	,SALESDXP.ID	"Item Group"
+	,SALESDXP.IDNM	"Item Group Description"
+	,SALESDXP.PROCOD	"Item#"
+	,SALESDXP.PRODES	"Item Description"
+	,SALESDXP.YEAR	"Fiscal Year"
+	,SALESDXP.QUARTR	"Quarter"
+	,SALESDXP.MONTH	"Month"
+	,SALESDXP.CASES	"Cases"
+	,SALESDXP.UNITS	"Units"
+	,SALESDXP.AMOUNT	"Amount"
+	,SALESDXP.PRICE	"Commissions"
+
+
+FROM QS36F.SALESDXP SALESDXP

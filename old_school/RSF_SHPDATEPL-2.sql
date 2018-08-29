@@ -1,0 +1,67 @@
+SELECT 
+MBI9RES1.I9ADR7 "Market", 
+CASE 
+	WHEN MBI9RES1.I9ADR7 = 'Whitmore Manufacturing'	THEN '0'
+	WHEN MBI9RES1.I9ADR7 = 'Balco Inc'	THEN '0'
+	WHEN MBI9RES1.I9ADR7 = 'Plumbing/Industrial Mkt'	THEN '11'
+	WHEN MBI9RES1.I9ADR7 = 'HVAC Market'	THEN '17'
+	WHEN MBI9RES1.I9ADR7 = 'Hardware/Home Center Mkt'	THEN '1'
+	WHEN MBI9RES1.I9ADR7 = 'OEM/National Mkt'	THEN '0'
+	WHEN MBI9RES1.I9ADR7 = 'Electrical Market'	THEN '1'
+	WHEN MBI9RES1.I9ADR7 = 'Construction Mk MC/BIO/FS'	THEN '2'		
+	WHEN MBI9RES1.I9ADR7 = 'Lab'	THEN '0'	
+	ELSE '0'
+END "Pri. Req. Days",
+
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '0' THEN 1 ELSE 0 END) "0Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '1' THEN 1 ELSE 0 END) "1Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '2' THEN 1 ELSE 0 END) "2Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '3' THEN 1 ELSE 0 END) "3Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '4' THEN 1 ELSE 0 END) "4Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '5' THEN 1 ELSE 0 END) "5Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '6' THEN 1 ELSE 0 END) "6Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '7' THEN 1 ELSE 0 END) "7Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '8' THEN 1 ELSE 0 END) "8Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '9' THEN 1 ELSE 0 END) "9Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY = '10' THEN 1 ELSE 0 END) "10Day",
+SUM(CASE WHEN SHPDATEPL.PTSDAY BETWEEN '11' AND '20' THEN 1 ELSE 0 END) "11-20",
+SUM(CASE WHEN SHPDATEPL.PTSDAY > '20' THEN 1 ELSE 0 END) "21+",
+SUM(SHPDATEPL.PTSDAY) "Total"
+
+
+FROM RSF.SHPDATEPL SHPDATEPL
+JOIN AMFLIB.MBI9RES1 MBI9RES1 ON MBI9RES1.I9ADR6 = SHPDATEPL.RMKT
+
+/*
+WHERE
+DATE(SHPDATEPL.ORDDT) -- Order day between first and last day of of previous month
+BETWEEN 
+-- First day of previous month
+(CAST(current timestamp AS DATE)) - (DAY(CAST(current timestamp AS DATE)) - 1)DAYS - 1 MONTH
+AND
+-- Last dat of previous month
+(CAST(current timestamp AS DATE)) - (DAY(CAST(current timestamp AS DATE)) - 1)DAYS - 1 DAY
+*/
+
+GROUP BY MBI9RES1.I9ADR7
+
+
+
+
+
+-- WHS (warehouse)
+-- MKT (Market ID)
+-- RMKT
+-- CUSNO (Customer Number)
+-- ORDDT (Order Date)
+-- PKLDT (Pick List Date)
+-- SHPDT (Ship Date)
+-- SHIPNUM (Ship Number)
+-- CASES (Cases)
+-- OTPDAY (Days Between Order and Packing List)
+-- OTSDAY (Days Between Order and Shipping)
+-- PTSDAY (Days Between Packing List and Shipping)
+
+--SELECT * FROM AMFLIB.mbi9res1
+-- I9ADR6 (ID) I9ADRY (Description)
+
